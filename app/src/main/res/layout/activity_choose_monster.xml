@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mbds.deptinfo.barcodebattler.Collection">
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:id="@+id/list"
+        />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Lancer le combat"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/fight"
+       />
+
+
+
+</LinearLayout>

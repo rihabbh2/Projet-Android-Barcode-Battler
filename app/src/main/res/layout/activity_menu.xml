@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroung"
+    tools:context="com.mbds.deptinfo.barcodebattler.Menu">
+
+    <Button
+        android:id="@+id/collection"
+
+        android:text="Collection"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/barcode"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Scanner un code bar"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/collection"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/blue"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Combat en Bluetooth"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/barcode"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/combat"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Combat local"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_marginTop="43dp"
+        android:layout_below="@+id/blue"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>
