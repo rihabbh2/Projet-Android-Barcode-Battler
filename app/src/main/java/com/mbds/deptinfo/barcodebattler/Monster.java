@@ -18,7 +18,11 @@ public class Monster implements Parcelable  {
     String categorie;
     Bitmap image ;
     String  imgBase64 ;
+    Equipement arme ;
     int forceBrute;
+    int cap_attack ;
+    int cap_def ;
+
    // int forceTotale ;
     public static final Parcelable.Creator<Monster> CREATOR = new Parcelable.Creator<Monster>()
     {
@@ -127,5 +131,30 @@ public class Monster implements Parcelable  {
         String forcebrute =   Integer.toString(forceBrute) ;
         String[] monster = {nom, categorie,imgBase64,forcebrute} ;
         dest.writeStringArray(monster);
+    }
+
+
+    public Equipement getArme() {
+        return arme;
+    }
+
+    public void setArme(Equipement arme) {
+        this.arme = arme;
+    }
+
+    public int getCap_attack() {
+        return cap_attack;
+    }
+
+    public void setCap_attack(int cap_attack) {
+        this.cap_attack = cap_attack;
+    }
+
+    public int getCap_def() {
+        return cap_def;
+    }
+
+    public void setCap_def(int cap_def) {
+        this.cap_def = cap_def;
     }
 }

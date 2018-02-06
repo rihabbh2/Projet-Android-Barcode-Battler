@@ -24,9 +24,12 @@ public class LocalCombat extends AppCompatActivity {
     TextView force2;
     Bitmap image2 ;
     ImageView mImageView2;
-    private Button attack;
+    Button attack;
     Monster m1;
     Monster m2 ;
+    Button defense;
+    TextView arme1;
+    TextView arme2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,25 +44,32 @@ public class LocalCombat extends AppCompatActivity {
         force2 = (TextView) findViewById(R.id.forc1) ;
         mImageView2 = (ImageView) findViewById(R.id.p1) ;
         Intent i = getIntent();
+        arme1 = (TextView)  findViewById(R.id.arme);
+        arme2 = (TextView)  findViewById(R.id.arme1);
+
 
         String name1 = "";
         String category1= "";
         String temp1 = "";
         int strengh1 = 0;
+        String arm1 = "";
 
         String name2 = "";
         String category2= "";
         String temp2 = "";
         int strengh2 = 0;
+        String arm2 = "";
 
         Intent intent = getIntent();
         if (null != intent) {
             name1 = intent.getStringExtra("nom1");
             category1 = intent.getStringExtra("category1");
             strengh1 = intent.getIntExtra("force1", 0);
+            arm1 = intent.getStringExtra("arme1");
             name2 = intent.getStringExtra("nom2");
             category2 = intent.getStringExtra("category2");
             strengh2 = intent.getIntExtra("force2", 0);
+            arm2 = intent.getStringExtra("arme2");
             if (intent.getStringExtra("images1")!=null){
                 temp1 = intent.getStringExtra("images1");
 
@@ -84,31 +94,97 @@ public class LocalCombat extends AppCompatActivity {
         m2 = new Monster(nom2.toString(),category2,image2, 100);
         force2.setText(Integer.toString(m2.getForceBrute()));
         force1.setText(Integer.toString(m1.getForceBrute()));
+        arme1.setText(arm1);
+        arme2.setText(arm2);
+
 
 
         attack= (Button) findViewById(R.id.attack);
         attack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               int attack1=  (int) (Math.random()*20);
-                m2.setForceBrute(m2.getForceBrute()-attack1) ;
-                force2.setText(""+m2.getForceBrute());
-                if (m2.getForceBrute() <= 0){
+                int attack1 = (int) (Math.random() * 20);
+                m2.setForceBrute(m2.getForceBrute() - attack1);
+                force2.setText("" + m2.getForceBrute());
+                Toast toast = Toast.makeText(LocalCombat.this.getBaseContext(), "Attack de puissance " +attack1, Toast.LENGTH_LONG);
+                toast.show();
+                if (m2.getForceBrute() <= 0) {
                     Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez gagné", Toast.LENGTH_LONG);
                     toast1.show();
                 } else {
-                    int attack2 = (int) (Math.random() * 20);
-                    m1.setForceBrute(m1.getForceBrute() - attack2);
-                    force1.setText(""+m1.getForceBrute());
-                    if (m1.getForceBrute() <= 0) {
-                        Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(),"Vous avez perdu", Toast.LENGTH_LONG);
-                        toast2.show();
+                    float choix = (float) Math.random();
+                    if (choix > 0.5) {
+                        int attack2 = (int) (Math.random() * 20);
+                        m1.setForceBrute(m1.getForceBrute() - attack2);
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 attack +" +attack2, Toast.LENGTH_LONG);
+                        toast1.show();
+                        force1.setText("" + m1.getForceBrute());
+                        if (m1.getForceBrute() <= 0) {
+                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
+                            toast2.show();
+                        }
+                    } else if (choix <= 0.5) {
+                        int def2 = (int) (Math.random() * 20);
+                        m2.setForceBrute(m2.getForceBrute() + def2);
+                        if (m2.getForceBrute()>100) {
+                            m2.setForceBrute(100);
+                        }
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 se défend +" +def2, Toast.LENGTH_LONG);
+                        toast1.show();
+                        force2.setText("" + m2.getForceBrute());
+                        if (m1.getForceBrute() <= 0) {
+                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
+                            toast2.show();
+                        }
                     }
                 }
             }
-
         });
 
+        defense= (Button) findViewById(R.id.def);
+        defense.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int def1 = (int) (Math.random() * 20);
+                m1.setForceBrute(m1.getForceBrute() + def1);
+                if (m1.getForceBrute()>100) {
+                    m1.setForceBrute(100);
+                }
+                force1.setText("" + m1.getForceBrute());
+                Toast toast = Toast.makeText(LocalCombat.this.getBaseContext(), "Defense de puissance " +def1, Toast.LENGTH_LONG);
+                toast.show();
+                if (m2.getForceBrute() <= 0) {
+                    Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez gagné", Toast.LENGTH_LONG);
+                    toast1.show();
+                } else {
+                    float choix = (float) Math.random();
+                    if (choix > 0.5) {
+                        int attack2 = (int) (Math.random() * 20);
+                        m1.setForceBrute(m1.getForceBrute() - attack2);
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 attack +" +attack2, Toast.LENGTH_LONG);
+                        toast1.show();
+                        force1.setText("" + m1.getForceBrute());
+                        if (m1.getForceBrute() <= 0) {
+                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
+                            toast2.show();
+                        }
+                    } else if (choix <= 0.5) {
+                        int def2 = (int) (Math.random() * 20);
+                        m2.setForceBrute(m2.getForceBrute() + def2);
+                        if (m2.getForceBrute()>100) {
+                            m2.setForceBrute(100);
+                        }
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 se défend +" +def2, Toast.LENGTH_LONG);
+                        toast1.show();
+                        force2.setText("" + m2.getForceBrute());
+                        if (m1.getForceBrute() <= 0) {
+                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
+                            toast2.show();
+                        }
+                    }
+                }            }
+
+        });
 
     }
 

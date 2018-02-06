@@ -9,16 +9,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static com.mbds.deptinfo.barcodebattler.R.id.arme;
 import static com.mbds.deptinfo.barcodebattler.R.id.force;
 
 public class ChooseMonster extends AppCompatActivity implements ListAdapter {
@@ -29,20 +32,30 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
     Monster m1 ;
     Monster m2 ;
     Button start ;
+    ArrayList<Equipement> armes ;
+    String arme1 ;
+    String arme2 ;
+    Spinner spinner ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_monster);
+        armes =  new ArrayList<Equipement>();
+        armes.add(new Equipement("sabre", 30,10));
+        armes.add(new Equipement("bouclier", 0,40));
+        armes.add(new Equipement("pistolet", 50,0));
         db = new MySQLiteHelper(getApplicationContext());
         monstersList = db.getMonsters(); //new ArrayList<>() ;
         lv = (ListView) findViewById(R.id.list);
         lv.setAdapter(this);
         lv.setItemsCanFocus(false);
         Bitmap imageTest = new   BitmapFactory().decodeResource(getResources(), R.drawable.test);
+        Bitmap imageTest2 = new   BitmapFactory().decodeResource(getResources(), R.drawable.test2);
+
         Monster monster1 = new Monster( "Cool Cat","Cat",imageTest,100) ;
-        Monster monster2 = new Monster( "Killer Cat","Cat",imageTest,100) ;
+        Monster monster2 = new Monster( "Working Dog","Dog",imageTest2,100) ;
         monstersList.add(monster1);
         monstersList.add(monster2);
 
@@ -57,6 +70,8 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
                 i.putExtra("nom2", m2.getNom());
                 i.putExtra("category2",m2.getCategorie());
                 i.putExtra("images2", m2.getImgBase64());
+                i.putExtra("arme1",m1.getArme().getNom());
+                i.putExtra("arme2",m2.getArme().getNom());
                 startActivity(i);
             }
 
@@ -126,6 +141,15 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
         final Monster monster = new Monster(text.toString(),txt.toString(),iv.getDrawingCache(),force);
         CheckBox cb = (CheckBox)  returnView.findViewById (R.id.check);
         cb.setTag (position);
+        spinner = (Spinner) returnView.findViewById (R.id.spinner);
+        ArrayList<String> weapon ;
+        weapon = new ArrayList<>();
+        for(int i = 0; i < armes.size(); i++) {
+            weapon.add(armes.get(i).getNom()) ;
+        }
+        ArrayAdapter<String> adapter =  new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, weapon);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
         return returnView ;
     }
 
@@ -133,20 +157,30 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
         CheckBox cb = (CheckBox) v;
         int position =   Integer.parseInt(cb.getTag().toString());
 
-        // On récupère l'élément sur lequel on va changer la couleur
         View o = lv.getChildAt(position).findViewById(
                 R.id.check);
 
-        //On change la couleur
         if (cb.isChecked()) {
             o.setBackgroundResource(R.color.colorPrimaryDark);
             if (m1==null){
                 m1 = (Monster) this.getItem(position);
+                arme1 = String.valueOf(spinner.getSelectedItem());
+                for(int i = 0; i < armes.size(); i++) {
+                    if (arme1 ==armes.get(i).getNom()){
+                        m1.setArme(armes.get(i));
+                    };
+                }
                 Toast toast = Toast.makeText(ChooseMonster.this.getBaseContext(), m1.getNom(), Toast.LENGTH_LONG);
                 toast.show();
 
             } else if (m2==null){
                 m2 = (Monster) this.getItem(position);
+                arme2 = String.valueOf(spinner.getSelectedItem()) ;
+                for(int i = 0; i < armes.size(); i++) {
+                    if (arme2 ==armes.get(i).getNom()){
+                        m2.setArme(armes.get(i));
+                    };
+                }
             }
         } else {
             o.setBackgroundResource(R.color.colorPrimary);
