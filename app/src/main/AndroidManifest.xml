@@ -26,7 +26,9 @@
         <activity android:name=".Details" />
         <activity android:name=".BluetoothList" />
         <activity android:name=".ChooseMonster" />
-        <activity android:name=".LocalCombat"></activity>
+        <activity android:name=".LocalCombat" />
+        <activity android:name=".Victoire" />
+        <activity android:name=".Defaite"></activity>
     </application>
 
 </manifest>

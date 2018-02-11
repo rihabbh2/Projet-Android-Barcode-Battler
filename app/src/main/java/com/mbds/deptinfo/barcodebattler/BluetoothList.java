@@ -158,7 +158,7 @@ public class BluetoothList extends AppCompatActivity implements ListAdapter {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                serverThread = new AcceptThread();
+                serverThread = new AcceptThread(BluetoothList.this);
                 serverThread.start();
             }
         });

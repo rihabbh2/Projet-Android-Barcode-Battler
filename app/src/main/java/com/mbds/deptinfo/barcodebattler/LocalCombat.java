@@ -109,8 +109,8 @@ public class LocalCombat extends AppCompatActivity {
                 Toast toast = Toast.makeText(LocalCombat.this.getBaseContext(), "Attack de puissance " +attack1, Toast.LENGTH_LONG);
                 toast.show();
                 if (m2.getForceBrute() <= 0) {
-                    Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez gagné", Toast.LENGTH_LONG);
-                    toast1.show();
+                    Intent intent =new Intent(LocalCombat.this, Victoire.class);
+                    LocalCombat.this.startActivity(intent);
                 } else {
                     float choix = (float) Math.random();
                     if (choix > 0.5) {
@@ -120,8 +120,8 @@ public class LocalCombat extends AppCompatActivity {
                         toast1.show();
                         force1.setText("" + m1.getForceBrute());
                         if (m1.getForceBrute() <= 0) {
-                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
-                            toast2.show();
+                            Intent intent =new Intent(LocalCombat.this, Defaite.class);
+                            LocalCombat.this.startActivity(intent);
                         }
                     } else if (choix <= 0.5) {
                         int def2 = (int) (Math.random() * 20);
@@ -133,8 +133,8 @@ public class LocalCombat extends AppCompatActivity {
                         toast1.show();
                         force2.setText("" + m2.getForceBrute());
                         if (m1.getForceBrute() <= 0) {
-                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
-                            toast2.show();
+                            Intent intent =new Intent(LocalCombat.this, Defaite.class);
+                            LocalCombat.this.startActivity(intent);
                         }
                     }
                 }
@@ -154,8 +154,8 @@ public class LocalCombat extends AppCompatActivity {
                 Toast toast = Toast.makeText(LocalCombat.this.getBaseContext(), "Defense de puissance " +def1, Toast.LENGTH_LONG);
                 toast.show();
                 if (m2.getForceBrute() <= 0) {
-                    Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez gagné", Toast.LENGTH_LONG);
-                    toast1.show();
+                    Intent intent =new Intent(LocalCombat.this, Victoire.class);
+                    LocalCombat.this.startActivity(intent);
                 } else {
                     float choix = (float) Math.random();
                     if (choix > 0.5) {
@@ -165,8 +165,8 @@ public class LocalCombat extends AppCompatActivity {
                         toast1.show();
                         force1.setText("" + m1.getForceBrute());
                         if (m1.getForceBrute() <= 0) {
-                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
-                            toast2.show();
+                            Intent intent =new Intent(LocalCombat.this, Defaite.class);
+                            LocalCombat.this.startActivity(intent);
                         }
                     } else if (choix <= 0.5) {
                         int def2 = (int) (Math.random() * 20);
@@ -178,8 +178,8 @@ public class LocalCombat extends AppCompatActivity {
                         toast1.show();
                         force2.setText("" + m2.getForceBrute());
                         if (m1.getForceBrute() <= 0) {
-                            Toast toast2 = Toast.makeText(LocalCombat.this.getBaseContext(), "Vous avez perdu", Toast.LENGTH_LONG);
-                            toast2.show();
+                            Intent intent =new Intent(LocalCombat.this, Defaite.class);
+                            LocalCombat.this.startActivity(intent);
                         }
                     }
                 }            }

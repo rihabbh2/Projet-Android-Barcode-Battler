@@ -73,10 +73,10 @@ public class ConnectThread extends Thread
         }
 
         MyBluetoothService mbs = new MyBluetoothService(mmSocket,mHandler);
-        for(int i = 0 ; i < 100 ; i++)
+        for(int i = 0 ; i < 10 ; i++)
             {
                 mbs.cThread.write("Bonjour".getBytes());
-        test= "Message Envoyé" ;
+                test= "Message Envoyé" ;
             }
 
     }

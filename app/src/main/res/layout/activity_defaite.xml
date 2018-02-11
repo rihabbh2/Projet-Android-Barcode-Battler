@@ -3,37 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mbds.deptinfo.barcodebattler.Details"
-    android:orientation="vertical">
+    tools:context="com.mbds.deptinfo.barcodebattler.Defaite"
+    android:orientation="vertical"
+    android:weightSum="1">
+
 
     <ImageView
-        android:id="@+id/p"
+        android:id="@+id/defaite"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/n"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="nom"/>
 
     <TextView
-        android:id="@+id/cat"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="prenom"
-        />
-
-    <TextView
-        android:id="@+id/forc"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="force" />
+        android:id="@+id/defeat"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:text="Défaite :("
+        android:textSize="90sp"
+        android:layout_weight="0.15" />
 
 
     <Button
-        android:id="@+id/reseau"
+        android:id="@+id/acceuil"
 
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -46,7 +39,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Combat Bluetooth"
+        android:text="Retour au Menu"
         android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
