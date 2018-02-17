@@ -28,7 +28,9 @@
         <activity android:name=".ChooseMonster" />
         <activity android:name=".LocalCombat" />
         <activity android:name=".Victoire" />
-        <activity android:name=".Defaite"></activity>
+        <activity android:name=".Defaite" />
+        <activity android:name=".TestFireBase" />
+        <activity android:name=".NetworkCombat"></activity>
     </application>
 
 </manifest>

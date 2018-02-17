@@ -3,21 +3,165 @@
 
     <item
         is-multidex="true"
-        jar="/home/deptinfo/BarcodeBattler/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/rihab/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_c88b55bd8abcafc88f749e2bf91f15564ceec9c7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/966a8bd33ed4e5d8417648e8946cd1f5ee626963/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3a1522631c39f5d180ae2ac5bca67319aec0a32b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/b8b1ee6f372658404bea675e173baa8eec0b09a1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b844eb8a176a79c75c478d607b7aa264ed818555/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/93cff7bdcf3c46f216cfef2e40b08e9554537cec/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_eb2f8bda64bae0b816b664a8bb2a47946555437b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_62f37e9c75e1c00ad544aea0ea1ba408ff09f352/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/08823b1bed6b4c7cbfad6cbf3a60557919bea745/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3f416b486d233745503f638c01e4bec9d24f7f73/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.gradle/caches/modules-2/files-2.1/com.google.zxing/android-core/3.3.0/86ce6f89a1d7944bb9814a2ec5520dccd3ee3dce/android-core-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="86ce6f89a1d7944bb9814a2ec5520dccd3ee3dce">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/android-core-3.3.0_f70d01748013184128172d9505162bce39f87ce6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/deptinfo/BarcodeBattler/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_2b763fa1794115037acc0b147d607bfe2d570248/classes.dex" />
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_d88c6e284c9d82f2f4e48c0c90bbbe3ad0e802a4/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/deptinfo/BarcodeBattler/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/rihab/.android/build-cache/19751a16df1fa90ce2b1993bf13c27083a37865a/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="63424ac0a988835030f34e3c6f456a948bb9ceec">
-        <dex dex="/home/deptinfo/BarcodeBattler/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3141fdb45dba68bf74fbbcbaf7f7270d3a5f075b/classes.dex" />
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_900d22b82e00513a01183f3e10ac266b6254167f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.3.0/73c49077166faa4c3c0059c5f583d1d7bd1475fe/core-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/core-3.3.0_cba695eb44a17a8c6982d4e58eee303801f9a623/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/f30d7c838a1916bcba485ef7ac79c21d8e9d6752/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_21354075a7c53ebdf8694a408f99d725edb2d8f9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="85bc38cd7854b5d11122f118b66992224ed5bea4">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_79543ec8c60bc295ebafe96ccd88486311d74290/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/8894d1a5610fb36bb64f9ca01f764ab65b3c637f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="414c5172d9739a35339700d133288418059e7d83">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c3f855d1c58a73a6dc1e0d58f6adc5fa06fc8a8e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/094e660c40de35c935762beeeb66c56a083da6e4/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_66f21f33709539a0727dfb08bd966e76b1d64888/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/ad9a5312a94a5b2cb7071ac576db0b5a2efe6fc0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c5c0ef29350b87be3b986c815110da0718fd596d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/46424e524c66bbfa974ebd3e822553b6ced674c1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5e40737c659d875feeb62fc3f1ab49168d692fd4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/c34f8104dfb9a70220aa008c05e8d7d3a2d28784/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f7ac3d12ade91b26cebdc95720254379bdba4095/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rihab/.android/build-cache/56dd8ea8da0e55d120a42c03c85fe93c6acaa542/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
+        <dex dex="/home/rihab/Téléchargements/Projet-Android-Barcode-Battler/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0a5912a77c15ec1baf745e64f000fbbca6cb3572/classes.dex" />
     </item>
 
 </items>

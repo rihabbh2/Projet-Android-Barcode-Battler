@@ -48,7 +48,7 @@ public class Barcode extends Activity implements ZXingScannerView.ResultHandler 
         Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)
         if (rawResult.getText().toString().equals("1234567890128") ){
             Bitmap imageTest = new BitmapFactory().decodeResource(getResources(), R.drawable.test);
-            Monster monster1 = new Monster( "test","test",imageTest,100) ;
+            Monster monster1 = new Monster( 1,"test","test",imageTest,100,10) ;
             db.addMonster(monster1);
             Toast toast = Toast.makeText(Barcode.this, "Monstre crée", Toast.LENGTH_LONG);
             toast.show();

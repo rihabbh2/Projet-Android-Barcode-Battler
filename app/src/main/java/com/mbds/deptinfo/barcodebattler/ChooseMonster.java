@@ -54,8 +54,8 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
         Bitmap imageTest = new   BitmapFactory().decodeResource(getResources(), R.drawable.test);
         Bitmap imageTest2 = new   BitmapFactory().decodeResource(getResources(), R.drawable.test2);
 
-        Monster monster1 = new Monster( "Cool Cat","Cat",imageTest,100) ;
-        Monster monster2 = new Monster( "Working Dog","Dog",imageTest2,100) ;
+        Monster monster1 = new Monster( 1,"Cool Cat","Cat",imageTest,100,34) ;
+        Monster monster2 = new Monster(2, "Working Dog","Dog",imageTest2,100,34) ;
         monstersList.add(monster1);
         monstersList.add(monster2);
 
@@ -134,11 +134,11 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
         final TextView txt =(TextView) returnView.findViewById(R.id.prenom);
         txt.setText(monstersList.get(position).categorie);
         final TextView t =(TextView) returnView.findViewById(force);
-        int  force = monstersList.get(position).forceBrute;
+        int  force = monstersList.get(position).attack;
         t.setText(Integer.toString(force));
         final ImageView iv = (ImageView)  returnView.findViewById(R.id.img);
         iv.setImageBitmap(monstersList.get(position).image);
-        final Monster monster = new Monster(text.toString(),txt.toString(),iv.getDrawingCache(),force);
+        final Monster monster = new Monster(0,text.toString(),txt.toString(),iv.getDrawingCache(),force,10);
         CheckBox cb = (CheckBox)  returnView.findViewById (R.id.check);
         cb.setTag (position);
         spinner = (Spinner) returnView.findViewById (R.id.spinner);

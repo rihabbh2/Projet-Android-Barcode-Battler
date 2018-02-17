@@ -90,10 +90,10 @@ public class LocalCombat extends AppCompatActivity {
         categorie1.setText(category1);
         nom2.setText(name2);
         categorie2.setText(category2);
-        m1 = new Monster(nom1.toString(),category1,image1, 100);
-        m2 = new Monster(nom2.toString(),category2,image2, 100);
-        force2.setText(Integer.toString(m2.getForceBrute()));
-        force1.setText(Integer.toString(m1.getForceBrute()));
+        m1 = new Monster(0,nom1.toString(),category1,image1, 100,10);
+        m2 = new Monster(1,nom2.toString(),category2,image2, 100,10);
+        force2.setText(Integer.toString(m2.getAttack()));
+        force1.setText(Integer.toString(m1.getAttack()));
         arme1.setText(arm1);
         arme2.setText(arm2);
 
@@ -104,35 +104,35 @@ public class LocalCombat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int attack1 = (int) (Math.random() * 20);
-                m2.setForceBrute(m2.getForceBrute() - attack1);
-                force2.setText("" + m2.getForceBrute());
+                m2.setAttack(m2.getAttack() - attack1);
+                force2.setText("" + m2.getAttack());
                 Toast toast = Toast.makeText(LocalCombat.this.getBaseContext(), "Attack de puissance " +attack1, Toast.LENGTH_LONG);
                 toast.show();
-                if (m2.getForceBrute() <= 0) {
+                if (m2.getAttack() <= 0) {
                     Intent intent =new Intent(LocalCombat.this, Victoire.class);
                     LocalCombat.this.startActivity(intent);
                 } else {
                     float choix = (float) Math.random();
                     if (choix > 0.5) {
                         int attack2 = (int) (Math.random() * 20);
-                        m1.setForceBrute(m1.getForceBrute() - attack2);
+                        m1.setAttack(m1.getAttack() - attack2);
                         Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 attack +" +attack2, Toast.LENGTH_LONG);
                         toast1.show();
-                        force1.setText("" + m1.getForceBrute());
-                        if (m1.getForceBrute() <= 0) {
+                        force1.setText("" + m1.getAttack());
+                        if (m1.getAttack() <= 0) {
                             Intent intent =new Intent(LocalCombat.this, Defaite.class);
                             LocalCombat.this.startActivity(intent);
                         }
                     } else if (choix <= 0.5) {
                         int def2 = (int) (Math.random() * 20);
-                        m2.setForceBrute(m2.getForceBrute() + def2);
-                        if (m2.getForceBrute()>100) {
-                            m2.setForceBrute(100);
+                        m2.setAttack(m2.getAttack() + def2);
+                        if (m2.getAttack()>100) {
+                            m2.setAttack(100);
                         }
                         Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 se défend +" +def2, Toast.LENGTH_LONG);
                         toast1.show();
-                        force2.setText("" + m2.getForceBrute());
-                        if (m1.getForceBrute() <= 0) {
+                        force2.setText("" + m2.getAttack());
+                        if (m1.getAttack() <= 0) {
                             Intent intent =new Intent(LocalCombat.this, Defaite.class);
                             LocalCombat.this.startActivity(intent);
                         }
@@ -146,38 +146,38 @@ public class LocalCombat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int def1 = (int) (Math.random() * 20);
-                m1.setForceBrute(m1.getForceBrute() + def1);
-                if (m1.getForceBrute()>100) {
-                    m1.setForceBrute(100);
+                m1.setAttack(m1.getAttack() + def1);
+                if (m1.getAttack()>100) {
+                    m1.setAttack(100);
                 }
-                force1.setText("" + m1.getForceBrute());
+                force1.setText("" + m1.getAttack());
                 Toast toast = Toast.makeText(LocalCombat.this.getBaseContext(), "Defense de puissance " +def1, Toast.LENGTH_LONG);
                 toast.show();
-                if (m2.getForceBrute() <= 0) {
+                if (m2.getAttack() <= 0) {
                     Intent intent =new Intent(LocalCombat.this, Victoire.class);
                     LocalCombat.this.startActivity(intent);
                 } else {
                     float choix = (float) Math.random();
                     if (choix > 0.5) {
                         int attack2 = (int) (Math.random() * 20);
-                        m1.setForceBrute(m1.getForceBrute() - attack2);
+                        m1.setAttack(m1.getAttack() - attack2);
                         Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 attack +" +attack2, Toast.LENGTH_LONG);
                         toast1.show();
-                        force1.setText("" + m1.getForceBrute());
-                        if (m1.getForceBrute() <= 0) {
+                        force1.setText("" + m1.getAttack());
+                        if (m1.getAttack() <= 0) {
                             Intent intent =new Intent(LocalCombat.this, Defaite.class);
                             LocalCombat.this.startActivity(intent);
                         }
                     } else if (choix <= 0.5) {
                         int def2 = (int) (Math.random() * 20);
-                        m2.setForceBrute(m2.getForceBrute() + def2);
-                        if (m2.getForceBrute()>100) {
-                            m2.setForceBrute(100);
+                        m2.setAttack(m2.getAttack() + def2);
+                        if (m2.getAttack()>100) {
+                            m2.setAttack(100);
                         }
                         Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 se défend +" +def2, Toast.LENGTH_LONG);
                         toast1.show();
-                        force2.setText("" + m2.getForceBrute());
-                        if (m1.getForceBrute() <= 0) {
+                        force2.setText("" + m2.getAttack());
+                        if (m1.getAttack() <= 0) {
                             Intent intent =new Intent(LocalCombat.this, Defaite.class);
                             LocalCombat.this.startActivity(intent);
                         }

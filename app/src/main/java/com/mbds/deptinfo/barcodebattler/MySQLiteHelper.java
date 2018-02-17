@@ -44,7 +44,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void addMonster(Monster monster)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT INTO MONSTER (NOM, CATEGORIE , FORCE, IMAGE) VALUES ('" +monster.getNom() +"','" +monster.getCategorie()+"','"+Integer.toString(monster.getForceBrute())+"','"+monster.getImgBase64()+"')");
+        db.execSQL("INSERT INTO MONSTER (NOM, CATEGORIE , FORCE, IMAGE) VALUES ('" +monster.getNom() +"','" +monster.getCategorie()+"','"+Integer.toString(monster.getAttack())+"','"+monster.getImgBase64()+"')");
         db.close();
     }
 
@@ -58,7 +58,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void UpdateMonster(Monster monster)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE NOM =" +monster.getNom() +", CATEGORIE =" +monster.getCategorie()+", IMAGE ="+monster.getImgBase64()+"FORCE ="+monster.getForceBrute()+ " FROM MONSTER") ;
+        db.execSQL("UPDATE NOM =" +monster.getNom() +", CATEGORIE =" +monster.getCategorie()+", IMAGE ="+monster.getImgBase64()+"FORCE ="+monster.getAttack()+ " FROM MONSTER") ;
         db.close();
 
 
@@ -84,7 +84,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 p.setNom(nom);
                 p.setCategorie(categorie);
                 p.setImage(image);
-                p.setForceBrute(force) ;
+                p.setAttack(force); ;
                 lp.add(p);
             }
             while(c.moveToNext());
