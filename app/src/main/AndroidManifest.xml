@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mbds.deptinfo.barcodebattler">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -30,7 +31,10 @@
         <activity android:name=".Victoire" />
         <activity android:name=".Defaite" />
         <activity android:name=".TestFireBase" />
-        <activity android:name=".NetworkCombat"></activity>
+        <activity android:name=".NetworkCombat" />
+        <activity android:name=".StartOnlineGame" />
+        <activity android:name=".JoinOnlineGame" />
+        <activity android:name=".SelectMonster"></activity>
     </application>
 
 </manifest>

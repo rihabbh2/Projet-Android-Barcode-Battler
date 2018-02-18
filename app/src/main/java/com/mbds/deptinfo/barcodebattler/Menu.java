@@ -9,9 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +46,9 @@ public class Menu extends AppCompatActivity {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(Menu.this, TestFireBase.class);
+                Intent intent =new Intent(Menu.this, JoinOnlineGame.class);
                 Menu.this.startActivity(intent);
+
             }
 
         });
@@ -94,7 +93,9 @@ public class Menu extends AppCompatActivity {
             }
 
         });*/
-                Intent intent = new Intent(Menu.this, NetworkCombat.class);
+              /*  Intent intent = new Intent(Menu.this, NetworkCombat.class);
+                Menu.this.startActivity(intent);*/
+                Intent intent =new Intent(Menu.this, StartOnlineGame.class);
                 Menu.this.startActivity(intent);
             }
 

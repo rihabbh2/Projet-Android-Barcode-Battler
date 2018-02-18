@@ -49,6 +49,15 @@ public class Monster implements Parcelable  {
         this.attack = attack ;
         this.def = def ;
     }
+    public Monster(int id ,String nom, String categorie, int attack , int def, int vie) {
+        this.id = id ;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.attack = attack ;
+        this.def = def ;
+        this.vie = vie ;
+    }
+
 
     public Monster(Parcel in)
     {
