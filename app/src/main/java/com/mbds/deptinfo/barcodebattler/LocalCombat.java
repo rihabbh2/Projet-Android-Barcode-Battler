@@ -64,12 +64,10 @@ public class LocalCombat extends AppCompatActivity {
         if (null != intent) {
             name1 = intent.getStringExtra("nom1");
             category1 = intent.getStringExtra("category1");
-            strengh1 = intent.getIntExtra("force1", 0);
-            arm1 = intent.getStringExtra("arme1");
+            arm1 = intent.getStringExtra("vie1");
             name2 = intent.getStringExtra("nom2");
             category2 = intent.getStringExtra("category2");
-            strengh2 = intent.getIntExtra("force2", 0);
-            arm2 = intent.getStringExtra("arme2");
+            arm2 = intent.getStringExtra("vie2");
             if (intent.getStringExtra("images1")!=null){
                 temp1 = intent.getStringExtra("images1");
 
@@ -90,8 +88,8 @@ public class LocalCombat extends AppCompatActivity {
         categorie1.setText(category1);
         nom2.setText(name2);
         categorie2.setText(category2);
-        m1 = new Monster(0,nom1.toString(),category1,image1, 100,10);
-        m2 = new Monster(1,nom2.toString(),category2,image2, 100,10);
+        m1 = new Monster(0,nom1.toString(),category1,image1, 100,10,100);
+        m2 = new Monster(1,nom2.toString(),category2,image2, 100,10,100);
         force2.setText(Integer.toString(m2.getAttack()));
         force1.setText(Integer.toString(m1.getAttack()));
         arme1.setText(arm1);

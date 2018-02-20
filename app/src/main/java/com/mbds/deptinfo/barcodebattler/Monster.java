@@ -41,13 +41,24 @@ public class Monster implements Parcelable  {
         }
     };
 
-    public Monster(int id ,String nom, String categorie, Bitmap image, int attack , int def) {
+    public Monster(int id ,String nom, String categorie, Bitmap image, int attack , int def, int vie) {
         this.id = id ;
         this.nom = nom;
         this.categorie = categorie;
         this.image = image;
         this.attack = attack ;
         this.def = def ;
+        this.vie = vie ;
+    }
+
+    public Monster(int id ,String nom, String categorie,String imgBase64, int attack , int def, int vie) {
+        this.id = id ;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.imgBase64 = imgBase64 ;
+        this.attack = attack ;
+        this.def = def ;
+        this.vie = vie ;
     }
     public Monster(int id ,String nom, String categorie, int attack , int def, int vie) {
         this.id = id ;

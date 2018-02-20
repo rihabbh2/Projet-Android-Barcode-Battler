@@ -18,7 +18,7 @@
         android:id="@+id/n"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="nom"
+        android:text=""
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/cat"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="prenom"
+        android:text=""
         android:layout_marginTop="21dp"
         android:layout_below="@+id/n"
         android:layout_alignParentEnd="true" />
@@ -35,7 +35,7 @@
         android:id="@+id/forc"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="force"
+        android:text=""
         android:layout_below="@+id/cat"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="17dp" />
@@ -44,7 +44,7 @@
         android:id="@+id/arme"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="arme"
+        android:text=""
         android:layout_below="@+id/p"
         android:layout_alignParentEnd="true" />
 
@@ -52,7 +52,7 @@
     <Button
         android:id="@+id/attack"
 
-        android:text="Attack !!!"
+        android:text="attack"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="150dp"
@@ -69,7 +69,7 @@
     <Button
         android:id="@+id/def"
 
-        android:text="Protec!!!"
+        android:text="defend"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="150dp"
@@ -91,7 +91,7 @@
         android:id="@+id/n1"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="nom"
+        android:text=""
         android:layout_alignTop="@+id/p1"
         android:layout_alignParentStart="true"
         android:layout_marginTop="11dp" />
@@ -100,7 +100,7 @@
         android:id="@+id/cat1"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="prenom"
+        android:text=""
         android:layout_alignTop="@+id/p1"
         android:layout_alignParentStart="true"
         android:layout_marginTop="74dp" />
@@ -109,7 +109,7 @@
         android:id="@+id/forc1"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="force"
+        android:text=""
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="12dp" />
@@ -118,7 +118,7 @@
         android:id="@+id/arme1"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="arme"
+        android:text=""
         android:layout_above="@+id/n1"
         android:layout_alignParentStart="true" />
 

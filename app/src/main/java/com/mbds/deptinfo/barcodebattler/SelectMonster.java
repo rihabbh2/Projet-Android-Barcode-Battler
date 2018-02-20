@@ -61,6 +61,7 @@ public class SelectMonster extends AppCompatActivity implements ListAdapter {
                 databaseCombat = databaseCombat.child("Combat") ;
 
                 databaseCombat.child(mac).child("1").setValue(item);
+                databaseCombat.child(mac).child("1").child("imgBase64").setValue(item.imgBase64);
 
                 Intent i = new Intent(SelectMonster.this, NetworkCombat.class);
                 i.putExtra("id",Integer.toString(item.getId()));

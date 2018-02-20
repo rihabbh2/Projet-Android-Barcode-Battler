@@ -29,13 +29,7 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/img" />
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="33dp"
-        android:id="@+id/force"
-        android:layout_below="@+id/prenom"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/img" />
+
 
     <Button
         android:id="@+id/del"

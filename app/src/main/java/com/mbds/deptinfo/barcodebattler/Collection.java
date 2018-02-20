@@ -40,20 +40,19 @@ public class Collection extends AppCompatActivity implements ListAdapter {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Monster item = (Monster) Collection.this.getItem(position);
-                Toast toast = Toast.makeText(Collection.this.getBaseContext(), item.getNom(), Toast.LENGTH_LONG);
-                toast.show();
                 Intent i = new Intent(Collection.this, Details.class);
                 i.putExtra("nom", item.getNom());
                 i.putExtra("category", item.getCategorie());
                 i.putExtra("images", item.getImgBase64());
-                //  i.putExtra("force",item.getForceBrute()) ;
+                i.putExtra("vie", Integer.toString(item.getVie()));
+                i.putExtra("attack", Integer.toString(item.getAttack()));
+                i.putExtra("def", Integer.toString(item.getDef()));
                 startActivity(i);
             }
         });
         Bitmap imageTest = new   BitmapFactory().decodeResource(getResources(), R.drawable.test);
-        Monster monster1 = new Monster( 1,"test","test",imageTest,100,10) ;
+        Monster monster1 = new Monster( 1,"test","test",imageTest,100,10,60) ;
         monstersList.add(monster1);
-        //monstersList.add(monster1);
     }
 
     @Override
@@ -111,14 +110,11 @@ public class Collection extends AppCompatActivity implements ListAdapter {
         text.setText(monstersList.get(position).nom);
         final TextView txt =(TextView) returnView.findViewById(R.id.prenom);
         txt.setText(monstersList.get(position).categorie);
-        final TextView t =(TextView) returnView.findViewById(force);
-        int  force = monstersList.get(position).attack;
-        t.setText(Integer.toString(force));
 
+
+        delete = (Button) returnView.findViewById(R.id.del);
         final ImageView iv = (ImageView)  returnView.findViewById(R.id.img);
         iv.setImageBitmap(monstersList.get(position).image);
- //       final Monster p = new Monster(text.toString(),txt.toString(),iv.getDrawingCache(),force);
-        delete = (Button) returnView.findViewById(R.id.del);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

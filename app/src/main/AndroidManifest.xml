@@ -34,7 +34,8 @@
         <activity android:name=".NetworkCombat" />
         <activity android:name=".StartOnlineGame" />
         <activity android:name=".JoinOnlineGame" />
-        <activity android:name=".SelectMonster"></activity>
+        <activity android:name=".SelectMonster" />
+        <activity android:name=".ChooseMonster2"></activity>
     </application>
 
 </manifest>
