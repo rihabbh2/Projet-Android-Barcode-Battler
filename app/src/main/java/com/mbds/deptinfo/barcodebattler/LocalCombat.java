@@ -88,8 +88,8 @@ public class LocalCombat extends AppCompatActivity {
         categorie1.setText(category1);
         nom2.setText(name2);
         categorie2.setText(category2);
-        m1 = new Monster(0,nom1.toString(),category1,image1, 100,10,100);
-        m2 = new Monster(1,nom2.toString(),category2,image2, 100,10,100);
+        m1 = new Monster("0",nom1.toString(),category1,image1, 100,10,100);
+        m2 = new Monster("1",nom2.toString(),category2,image2, 100,10,100);
         force2.setText(Integer.toString(m2.getAttack()));
         force1.setText(Integer.toString(m1.getAttack()));
         arme1.setText(arm1);

@@ -77,7 +77,7 @@ public class ChooseMonster2 extends AppCompatActivity implements ListAdapter {
             }
         });
         Bitmap imageTest = new   BitmapFactory().decodeResource(getResources(), R.drawable.test);
-        Monster monster1 = new Monster( 1,"test","test",imageTest,100,10,60) ;
+        Monster monster1 = new Monster("1","test","test",imageTest,100,10,60) ;
         monstersList.add(monster1);
     }
 

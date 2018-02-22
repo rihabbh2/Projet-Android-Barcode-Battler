@@ -19,20 +19,52 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.Result;
 
+import java.util.ArrayList;
+
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class Barcode extends Activity implements ZXingScannerView.ResultHandler {
     private ZXingScannerView ScannerView;
     MySQLiteHelper db ;
     private DatabaseReference databaseMonster;
+    ArrayList<Monster> monsterList ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
+        monsterList= new ArrayList<>();
         databaseMonster = FirebaseDatabase.getInstance().getReference();
         databaseMonster = databaseMonster.child("Monster") ;
+        databaseMonster.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Monster m = (Monster) dataSnapshot.getValue(Monster.class);
+                Monster m1 = m ;
+                monsterList.add(m);
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         QRCScanner(this.ScannerView) ;
         db = new MySQLiteHelper(getApplicationContext());
 
@@ -57,6 +89,15 @@ public class Barcode extends Activity implements ZXingScannerView.ResultHandler 
     // Récupération du contenu
     @Override
     public void handleResult(final Result rawResult) {
+        String code = rawResult.getText().toString() ;
+        for (int i = 0; i < monsterList.size(); i++) {
+            String id = monsterList.get(i).getId();
+          if(id.equals(code)){
+            db.addMonster(monsterList.get(i));
+              Intent intent = new Intent(Barcode.this, Collection.class);
+              Barcode.this.startActivity(intent);
+          }
+        }
       //  Log.e("handler", rawResult.getText()); // Prints scan results
        // Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)
 
@@ -70,45 +111,6 @@ public class Barcode extends Activity implements ZXingScannerView.ResultHandler 
             Toast toast = Toast.makeText(Barcode.this, "Code Bar non enregistré dans la BD", Toast.LENGTH_LONG);
             toast.show();
         }*/
-
-       // databaseMonster= databaseMonster.child(rawResult.getText().toString());
-
-        databaseMonster.addChildEventListener(new ChildEventListener() {
-            String result = rawResult.getText().toString() ;
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Monster m = (Monster) dataSnapshot.getValue(Monster.class);
-                if (Integer.toString(m.id).equals(result)){
-                    db.addMonster(m);
-                    Intent intent = new Intent(Barcode.this, Collection.class);
-                    Barcode.this.startActivity(intent);
-                } else {
-                    Toast toast = Toast.makeText(Barcode.this, "Code Bar non enregistré dans la BD", Toast.LENGTH_LONG);
-                    toast.show();
-                }
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
 
         // afficher le résultat dans une dialog box.
       /*  AlertDialog.Builder builder = new AlertDialog.Builder(this);

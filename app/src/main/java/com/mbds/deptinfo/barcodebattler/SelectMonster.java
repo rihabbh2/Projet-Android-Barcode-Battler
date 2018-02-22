@@ -60,18 +60,19 @@ public class SelectMonster extends AppCompatActivity implements ListAdapter {
                 databaseCombat = FirebaseDatabase.getInstance().getReference();
                 databaseCombat = databaseCombat.child("Combat") ;
 
+                item.setImage(null);
                 databaseCombat.child(mac).child("1").setValue(item);
                 databaseCombat.child(mac).child("1").child("imgBase64").setValue(item.imgBase64);
 
                 Intent i = new Intent(SelectMonster.this, NetworkCombat.class);
-                i.putExtra("id",Integer.toString(item.getId()));
+                i.putExtra("id",(item.getId()));
                 i.putExtra("turn","1");
                 i.putExtra("mac",mac)  ;
                 startActivity(i);
             }
         });
         Bitmap imageTest = new BitmapFactory().decodeResource(getResources(), R.drawable.test);
-        Monster monster1 = new Monster( 1,"test","test",100,10,100) ;
+        Monster monster1 = new Monster( "1234567890128","Chaton","chat",100,10,100) ;
         monstersList.add(monster1);
     }
 
@@ -120,7 +121,7 @@ public class SelectMonster extends AppCompatActivity implements ListAdapter {
         View returnView;
         if (convertView==null)
         {
-            returnView=  View.inflate(this,R.layout.racine,null);
+            returnView=  View.inflate(this,R.layout.choose_monster,null);
         }
         else
         {

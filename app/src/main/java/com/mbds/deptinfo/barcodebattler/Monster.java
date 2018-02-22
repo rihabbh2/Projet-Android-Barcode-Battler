@@ -14,16 +14,16 @@ import java.io.ByteArrayOutputStream;
 
 public class Monster implements Parcelable  {
 
-    int id ;
+    String id ;
     String nom;
     String categorie;
     Bitmap image ;
     String  imgBase64 ;
-    Equipement arme ;
+    //Equipement arme ;
     int attack ;
     int def ;
     int vie ;
-    public boolean taken ;
+  //  public boolean taken ;
 
    // int forceTotale ;
     public static final Parcelable.Creator<Monster> CREATOR = new Parcelable.Creator<Monster>()
@@ -41,7 +41,7 @@ public class Monster implements Parcelable  {
         }
     };
 
-    public Monster(int id ,String nom, String categorie, Bitmap image, int attack , int def, int vie) {
+    public Monster(String id ,String nom, String categorie, Bitmap image, int attack , int def, int vie) {
         this.id = id ;
         this.nom = nom;
         this.categorie = categorie;
@@ -51,7 +51,7 @@ public class Monster implements Parcelable  {
         this.vie = vie ;
     }
 
-    public Monster(int id ,String nom, String categorie,String imgBase64, int attack , int def, int vie) {
+    public Monster(String id ,String nom, String categorie,String imgBase64, int attack , int def, int vie) {
         this.id = id ;
         this.nom = nom;
         this.categorie = categorie;
@@ -60,7 +60,7 @@ public class Monster implements Parcelable  {
         this.def = def ;
         this.vie = vie ;
     }
-    public Monster(int id ,String nom, String categorie, int attack , int def, int vie) {
+    public Monster(String id ,String nom, String categorie, int attack , int def, int vie) {
         this.id = id ;
         this.nom = nom;
         this.categorie = categorie;
@@ -76,7 +76,7 @@ public class Monster implements Parcelable  {
         String[] data = new String[5];
         in.readStringArray(data);
         // the order needs to be the same as in writeToParcel() method
-        this.id = Integer.parseInt(data[0]) ; this.nom = data[1]; this.categorie = data[2] ; this.imgBase64= data[3]; this.attack= Integer.parseInt(data[4]); this.def = Integer.parseInt(data[5]);
+        this.id = data[0] ; this.nom = data[1]; this.categorie = data[2] ; this.imgBase64= data[3]; this.attack= Integer.parseInt(data[4]); this.def = Integer.parseInt(data[5]);
         if(imgBase64.length()>0)
         {
             byte [] encodeByte= Base64.decode(imgBase64,Base64.DEFAULT);
@@ -128,13 +128,13 @@ public class Monster implements Parcelable  {
         this.imgBase64 = imgBase64;
     }
 
-    public boolean isTaken() {
-        return taken;
-    }
+  //  public boolean isTaken() {
+//        return taken;
+  //  }
 
-    public void setTaken(boolean taken) {
-        this.taken = taken;
-    }
+    //public void setTaken(boolean taken) {
+        //this.taken = taken;
+    //}
 
     public int getVie() {
         return vie;
@@ -144,11 +144,11 @@ public class Monster implements Parcelable  {
         this.vie = vie;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -186,19 +186,18 @@ public class Monster implements Parcelable  {
         else {imgBase64="";}
         String attack =   Integer.toString(this.attack) ;
         String def =   Integer.toString(this.def) ;
-        String id =   Integer.toString(this.id) ;
         String[] monster = {id,nom, categorie,imgBase64,attack,def} ;
         dest.writeStringArray(monster);
     }
 
 
-    public Equipement getArme() {
-        return arme;
-    }
+   // public Equipement getArme() {
+     //   return arme;
+    //}
 
-    public void setArme(Equipement arme) {
-        this.arme = arme;
-    }
+    //public void setArme(Equipement arme) {
+      //  this.arme = arme;
+    //}
 
     @Override
     public String toString() {

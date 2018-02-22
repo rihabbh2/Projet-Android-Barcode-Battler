@@ -29,7 +29,7 @@ public class NetworkCombat extends AppCompatActivity {
     Monster m2 ;
     Button attack;
     Button defense ;
-    int id ;
+    String id ;
     String turn ;
     String oturn ;
     String mac ;
@@ -43,7 +43,7 @@ public class NetworkCombat extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (null != intent) {
-            id = Integer.parseInt(intent.getStringExtra("id"));
+            id = intent.getStringExtra("id");
             turn = intent.getStringExtra("turn") ;
             mac= intent.getStringExtra("mac");
         }
@@ -60,18 +60,20 @@ public class NetworkCombat extends AppCompatActivity {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     Monster m = (Monster) dataSnapshot.getValue(Monster.class);
-                    if (m.id == id && turn.equals(dataSnapshot.getKey())) {//(m.taken==false && m1==null) {
+                    if (m.id.equals(id) && turn.equals(dataSnapshot.getKey())) {//(m.taken==false && m1==null) {
                         if (turn.equals("0")  ) {
                             oturn = "1";
                         } else {
                             oturn="0" ;
                         }
-                        m.setTaken(true);
+                        //m.setTaken(true);
                         m1 = m;
                         databaseCombat.child(turn).child("taken").setValue(true);
 
                         mImageView = (ImageView) findViewById(R.id.p) ;
-                        if (m1.getImgBase64()!=null){
+
+                        if (m1.imgBase64.equals(null)) {
+                        } else {
                             String temp = m1.imgBase64;
 
                             byte [] encodeByte= Base64.decode(temp,Base64.DEFAULT);
@@ -80,6 +82,8 @@ public class NetworkCombat extends AppCompatActivity {
                         }
                         TextView text = (TextView) findViewById(R.id.n);
                         text.setText(m1.getNom());
+                        TextView txt = (TextView) findViewById(R.id.cat);
+                        txt.setText(m1.getCategorie());
                         DatabaseReference refLife = databaseCombat.child(turn).child("vie");
                         refLife.addValueEventListener(new ValueEventListener() {
                             @Override
@@ -120,14 +124,28 @@ public class NetworkCombat extends AppCompatActivity {
                             mImageView.setImageBitmap(image);
                         }
                         DatabaseReference refLife = databaseCombat.child(oturn).child("vie");
-                        //  i=i+1 ;
                         refLife.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 TextView txt = (TextView) findViewById(R.id.forc1);
                                 int vie = dataSnapshot.getValue(Integer.class);
                                 txt.setText(Integer.toString(vie));
+                            }
 
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        DatabaseReference refImg = databaseCombat.child(oturn).child("imgBase64");
+                        refImg.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String temp =dataSnapshot.getValue(String.class);
+                                byte [] encodeByte= Base64.decode(temp,Base64.DEFAULT);
+                                Bitmap image = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+                                mImageView.setImageBitmap(image);
                             }
 
                             @Override
