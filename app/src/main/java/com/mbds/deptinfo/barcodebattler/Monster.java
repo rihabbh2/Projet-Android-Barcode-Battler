@@ -14,14 +14,16 @@ import java.io.ByteArrayOutputStream;
 
 public class Monster implements Parcelable  {
 
+    String id ;
     String nom;
     String categorie;
     Bitmap image ;
     String  imgBase64 ;
-    Equipement arme ;
-    int forceBrute;
-    int cap_attack ;
-    int cap_def ;
+    //Equipement arme ;
+    int attack ;
+    int def ;
+    int vie ;
+  //  public boolean taken ;
 
    // int forceTotale ;
     public static final Parcelable.Creator<Monster> CREATOR = new Parcelable.Creator<Monster>()
@@ -39,20 +41,42 @@ public class Monster implements Parcelable  {
         }
     };
 
-    public Monster(String nom, String categorie, Bitmap image, int forceBrute) {
+    public Monster(String id ,String nom, String categorie, Bitmap image, int attack , int def, int vie) {
+        this.id = id ;
         this.nom = nom;
         this.categorie = categorie;
         this.image = image;
-        this.forceBrute = forceBrute;
+        this.attack = attack ;
+        this.def = def ;
+        this.vie = vie ;
     }
+
+    public Monster(String id ,String nom, String categorie,String imgBase64, int attack , int def, int vie) {
+        this.id = id ;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.imgBase64 = imgBase64 ;
+        this.attack = attack ;
+        this.def = def ;
+        this.vie = vie ;
+    }
+    public Monster(String id ,String nom, String categorie, int attack , int def, int vie) {
+        this.id = id ;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.attack = attack ;
+        this.def = def ;
+        this.vie = vie ;
+    }
+
 
     public Monster(Parcel in)
     {
 
-        String[] data = new String[3];
+        String[] data = new String[5];
         in.readStringArray(data);
         // the order needs to be the same as in writeToParcel() method
-        this.nom = data[0]; this.categorie = data[1] ; this.imgBase64= data[2]; this.forceBrute= Integer.parseInt(data[3]);
+        this.id = data[0] ; this.nom = data[1]; this.categorie = data[2] ; this.imgBase64= data[3]; this.attack= Integer.parseInt(data[4]); this.def = Integer.parseInt(data[5]);
         if(imgBase64.length()>0)
         {
             byte [] encodeByte= Base64.decode(imgBase64,Base64.DEFAULT);
@@ -104,12 +128,44 @@ public class Monster implements Parcelable  {
         this.imgBase64 = imgBase64;
     }
 
-    public int getForceBrute() {
-        return forceBrute;
+  //  public boolean isTaken() {
+//        return taken;
+  //  }
+
+    //public void setTaken(boolean taken) {
+        //this.taken = taken;
+    //}
+
+    public int getVie() {
+        return vie;
     }
 
-    public void setForceBrute(int forceBrute) {
-        this.forceBrute = forceBrute;
+    public void setVie(int vie) {
+        this.vie = vie;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
+    public void setDef(int def) {
+        this.def = def;
     }
 
     @Override
@@ -128,33 +184,23 @@ public class Monster implements Parcelable  {
             imgBase64= Base64.encodeToString(b, Base64.DEFAULT);
         }
         else {imgBase64="";}
-        String forcebrute =   Integer.toString(forceBrute) ;
-        String[] monster = {nom, categorie,imgBase64,forcebrute} ;
+        String attack =   Integer.toString(this.attack) ;
+        String def =   Integer.toString(this.def) ;
+        String[] monster = {id,nom, categorie,imgBase64,attack,def} ;
         dest.writeStringArray(monster);
     }
 
 
-    public Equipement getArme() {
-        return arme;
-    }
+   // public Equipement getArme() {
+     //   return arme;
+    //}
 
-    public void setArme(Equipement arme) {
-        this.arme = arme;
-    }
+    //public void setArme(Equipement arme) {
+      //  this.arme = arme;
+    //}
 
-    public int getCap_attack() {
-        return cap_attack;
-    }
-
-    public void setCap_attack(int cap_attack) {
-        this.cap_attack = cap_attack;
-    }
-
-    public int getCap_def() {
-        return cap_def;
-    }
-
-    public void setCap_def(int cap_def) {
-        this.cap_def = cap_def;
+    @Override
+    public String toString() {
+        return this.nom ;
     }
 }

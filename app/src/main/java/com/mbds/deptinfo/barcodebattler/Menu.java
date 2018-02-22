@@ -9,9 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +23,8 @@ public class Menu extends AppCompatActivity {
     Button blue ;
     BluetoothAdapter mBluetoothAdapter ;
     Button local ;
+    private Button test;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,16 @@ public class Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent =new Intent(Menu.this, Barcode.class);
                 Menu.this.startActivity(intent);
+            }
+
+        });
+        test = (Button) findViewById(R.id.test);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Menu.this, JoinOnlineGame.class);
+                Menu.this.startActivity(intent);
+
             }
 
         });
@@ -65,7 +75,7 @@ public class Menu extends AppCompatActivity {
         blue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mBluetoothAdapter == null) {
+            /*    if (mBluetoothAdapter == null) {
                     Toast toast = Toast.makeText(Menu.this.getBaseContext(), "Le téléphone ne supporte pas le bluetooth", Toast.LENGTH_LONG);
                     toast.show();
                     finish();
@@ -80,6 +90,13 @@ public class Menu extends AppCompatActivity {
                  //serverThread = new AcceptThread();
                 //serverThread.start();
 
+            }
+
+        });*/
+              /*  Intent intent = new Intent(Menu.this, NetworkCombat.class);
+                Menu.this.startActivity(intent);*/
+                Intent intent =new Intent(Menu.this, StartOnlineGame.class);
+                Menu.this.startActivity(intent);
             }
 
         });

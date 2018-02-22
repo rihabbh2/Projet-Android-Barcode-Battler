@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "944692972447",
+    "firebase_url": "https://projet-android-barcode-battler.firebaseio.com",
+    "project_id": "projet-android-barcode-battler",
+    "storage_bucket": "projet-android-barcode-battler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944692972447:android:cbb9a256e9fbabb6",
+        "android_client_info": {
+          "package_name": "com.mbds.deptinfo.barcodebattler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944692972447-dc3upkfkhljink082f2cfa8omnrv2e93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mbds.deptinfo.barcodebattler",
+            "certificate_hash": "ea8b1265e20b2e2943b1631cd97863dd8a591f2d"
+          }
+        },
+        {
+          "client_id": "944692972447-5p3ho6v42l4ntje36sgr82d0ika6jia0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4iB7vcBkwv5Mf5HvD3-MVJjrP5Zqa6MU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944692972447-5p3ho6v42l4ntje36sgr82d0ika6jia0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

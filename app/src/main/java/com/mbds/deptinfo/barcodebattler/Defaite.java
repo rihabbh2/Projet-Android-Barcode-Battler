@@ -17,7 +17,7 @@ public class Defaite extends AppCompatActivity {
         setContentView(R.layout.activity_defaite);
 
         ImageView imageView = (ImageView) findViewById(R.id.defaite);
-        imageView.setImageResource(R.drawable.victory);
+        imageView.setImageResource(R.drawable.defeat);
 
         retour = (Button) findViewById(R.id.acceuil);
         retour.setOnClickListener(new View.OnClickListener() {

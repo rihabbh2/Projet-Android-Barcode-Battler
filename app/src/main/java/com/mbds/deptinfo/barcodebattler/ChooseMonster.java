@@ -9,19 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static com.mbds.deptinfo.barcodebattler.R.id.arme;
 import static com.mbds.deptinfo.barcodebattler.R.id.force;
 
 public class ChooseMonster extends AppCompatActivity implements ListAdapter {
@@ -29,53 +25,34 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
     ArrayList<Monster> monstersList ;
     ListView lv ;
     MySQLiteHelper db ;
-    Monster m1 ;
-    Monster m2 ;
-    Button start ;
-    ArrayList<Equipement> armes ;
-    String arme1 ;
-    String arme2 ;
-    Spinner spinner ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_monster);
-        armes =  new ArrayList<Equipement>();
-        armes.add(new Equipement("sabre", 30,10));
-        armes.add(new Equipement("bouclier", 0,40));
-        armes.add(new Equipement("pistolet", 50,0));
         db = new MySQLiteHelper(getApplicationContext());
         monstersList = db.getMonsters(); //new ArrayList<>() ;
         lv = (ListView) findViewById(R.id.list);
         lv.setAdapter(this);
         lv.setItemsCanFocus(false);
-        Bitmap imageTest = new   BitmapFactory().decodeResource(getResources(), R.drawable.test);
-        Bitmap imageTest2 = new   BitmapFactory().decodeResource(getResources(), R.drawable.test2);
-
-        Monster monster1 = new Monster( "Cool Cat","Cat",imageTest,100) ;
-        Monster monster2 = new Monster( "Working Dog","Dog",imageTest2,100) ;
-        monstersList.add(monster1);
-        monstersList.add(monster2);
-
-        start= (Button) findViewById(R.id.start);
-        start.setOnClickListener(new View.OnClickListener() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ChooseMonster.this, LocalCombat.class);
-                i.putExtra("nom1", m1.getNom());
-                i.putExtra("category1",m1.getCategorie());
-                i.putExtra("images1", m1.getImgBase64());
-                i.putExtra("nom2", m2.getNom());
-                i.putExtra("category2",m2.getCategorie());
-                i.putExtra("images2", m2.getImgBase64());
-                i.putExtra("arme1",m1.getArme().getNom());
-                i.putExtra("arme2",m2.getArme().getNom());
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Monster item = (Monster) ChooseMonster.this.getItem(position);
+                Intent i = new Intent(ChooseMonster.this, ChooseMonster2.class);
+                i.putExtra("nom", item.getNom());
+                i.putExtra("category", item.getCategorie());
+                i.putExtra("images", item.getImgBase64());
+                i.putExtra("vie", Integer.toString(item.getVie()));
+                i.putExtra("attack", Integer.toString(item.getAttack()));
+                i.putExtra("def", Integer.toString(item.getDef()));
                 startActivity(i);
             }
-
         });
+        Bitmap imageTest = new   BitmapFactory().decodeResource(getResources(), R.drawable.test);
+        Monster monster1 = new Monster( "1","test","test",imageTest,100,10,60) ;
+        monstersList.add(monster1);
     }
 
     @Override
@@ -133,60 +110,10 @@ public class ChooseMonster extends AppCompatActivity implements ListAdapter {
         text.setText(monstersList.get(position).nom);
         final TextView txt =(TextView) returnView.findViewById(R.id.prenom);
         txt.setText(monstersList.get(position).categorie);
-        final TextView t =(TextView) returnView.findViewById(force);
-        int  force = monstersList.get(position).forceBrute;
-        t.setText(Integer.toString(force));
         final ImageView iv = (ImageView)  returnView.findViewById(R.id.img);
         iv.setImageBitmap(monstersList.get(position).image);
-        final Monster monster = new Monster(text.toString(),txt.toString(),iv.getDrawingCache(),force);
-        CheckBox cb = (CheckBox)  returnView.findViewById (R.id.check);
-        cb.setTag (position);
-        spinner = (Spinner) returnView.findViewById (R.id.spinner);
-        ArrayList<String> weapon ;
-        weapon = new ArrayList<>();
-        for(int i = 0; i < armes.size(); i++) {
-            weapon.add(armes.get(i).getNom()) ;
-        }
-        ArrayAdapter<String> adapter =  new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, weapon);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
         return returnView ;
     }
-
-    public void MyHandler(View v) {
-        CheckBox cb = (CheckBox) v;
-        int position =   Integer.parseInt(cb.getTag().toString());
-
-        View o = lv.getChildAt(position).findViewById(
-                R.id.check);
-
-        if (cb.isChecked()) {
-            o.setBackgroundResource(R.color.colorPrimaryDark);
-            if (m1==null){
-                m1 = (Monster) this.getItem(position);
-                arme1 = String.valueOf(spinner.getSelectedItem());
-                for(int i = 0; i < armes.size(); i++) {
-                    if (arme1 ==armes.get(i).getNom()){
-                        m1.setArme(armes.get(i));
-                    };
-                }
-                Toast toast = Toast.makeText(ChooseMonster.this.getBaseContext(), m1.getNom(), Toast.LENGTH_LONG);
-                toast.show();
-
-            } else if (m2==null){
-                m2 = (Monster) this.getItem(position);
-                arme2 = String.valueOf(spinner.getSelectedItem()) ;
-                for(int i = 0; i < armes.size(); i++) {
-                    if (arme2 ==armes.get(i).getNom()){
-                        m2.setArme(armes.get(i));
-                    };
-                }
-            }
-        } else {
-            o.setBackgroundResource(R.color.colorPrimary);
-        }
-    }
-
 
     @Override
     public int getItemViewType(int position) {
