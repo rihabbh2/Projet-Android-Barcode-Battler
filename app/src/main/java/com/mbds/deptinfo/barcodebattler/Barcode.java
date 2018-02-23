@@ -2,9 +2,12 @@ package com.mbds.deptinfo.barcodebattler;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,12 +31,14 @@ public class Barcode extends Activity implements ZXingScannerView.ResultHandler 
     MySQLiteHelper db ;
     private DatabaseReference databaseMonster;
     ArrayList<Monster> monsterList ;
+    Boolean exist ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
+        this.exist=false ;
         monsterList= new ArrayList<>();
         databaseMonster = FirebaseDatabase.getInstance().getReference();
         databaseMonster = databaseMonster.child("Monster") ;
@@ -96,7 +101,14 @@ public class Barcode extends Activity implements ZXingScannerView.ResultHandler 
             db.addMonster(monsterList.get(i));
               Intent intent = new Intent(Barcode.this, Collection.class);
               Barcode.this.startActivity(intent);
+              this.exist=true ;
           }
+        }
+
+        if(this.exist==false){
+            Toast toast = Toast.makeText(Barcode.this, "Ce code barre ne correspond à aucun monstre", Toast.LENGTH_LONG);
+            toast.show();
+            ScannerView.resumeCameraPreview(this);
         }
       //  Log.e("handler", rawResult.getText()); // Prints scan results
        // Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)

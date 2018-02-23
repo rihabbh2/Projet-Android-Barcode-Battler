@@ -50,13 +50,9 @@ public class NetworkCombat extends AppCompatActivity {
 
         databaseCombat = FirebaseDatabase.getInstance().getReference();
         databaseCombat = databaseCombat.child("Combat").child(mac) ;
-
-     //   DatabaseReference combat  = databaseCombat.child("Combat1") ;
-
             databaseCombat.addChildEventListener(new ChildEventListener() {
                 public Bitmap image;
 
-                //  int i = 0;
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     Monster m = (Monster) dataSnapshot.getValue(Monster.class);
@@ -80,6 +76,8 @@ public class NetworkCombat extends AppCompatActivity {
                             this.image = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                             mImageView.setImageBitmap(image);
                         }
+                        TextView t = (TextView) findViewById(R.id.gid);
+                        t.setText(mac);
                         TextView text = (TextView) findViewById(R.id.n);
                         text.setText(m1.getNom());
                         TextView txt = (TextView) findViewById(R.id.cat);
@@ -91,7 +89,7 @@ public class NetworkCombat extends AppCompatActivity {
                                 TextView txt = (TextView) findViewById(R.id.forc);
                                 int vie = dataSnapshot.getValue(Integer.class);
                                 txt.setText(Integer.toString(vie));
-                                if (m1.getVie() <= 0) {
+                                if (vie <= 0) {
                                     Intent intent = new Intent(NetworkCombat.this, Defaite.class);
                                     NetworkCombat.this.startActivity(intent);
                                 }

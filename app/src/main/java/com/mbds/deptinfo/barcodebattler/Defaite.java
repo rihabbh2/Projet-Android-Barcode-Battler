@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Defaite extends AppCompatActivity {
 
     private Button retour;
@@ -15,6 +18,7 @@ public class Defaite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_defaite);
+        Intent intent = getIntent();
 
         ImageView imageView = (ImageView) findViewById(R.id.defaite);
         imageView.setImageResource(R.drawable.defeat);

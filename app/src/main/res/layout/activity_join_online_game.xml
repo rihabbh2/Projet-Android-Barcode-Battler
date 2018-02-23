@@ -14,7 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="220dp"
-        android:text="Entrer l'adresse MAC de votre adversaire" />
+        android:text="Entrer l'id de votre partie" />
 
     <EditText
         android:id="@+id/mac"

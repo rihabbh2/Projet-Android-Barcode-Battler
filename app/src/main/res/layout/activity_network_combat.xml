@@ -48,6 +48,23 @@
         android:layout_below="@+id/p"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/attack"
+        android:layout_alignParentStart="true"
+        android:text="Id du jeu : " />
+
+    <TextView
+        android:id="@+id/gid"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/textView7"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_toStartOf="@+id/p1"
+        android:text="" />
+
 
     <Button
         android:id="@+id/attack"

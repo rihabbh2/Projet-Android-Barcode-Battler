@@ -2,14 +2,19 @@ package com.mbds.deptinfo.barcodebattler;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +33,12 @@ public class Menu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      // setContentView(R.layout.activity_menu);
         mBluetoothAdapter  = BluetoothAdapter.getDefaultAdapter();
+        // Active le wi fi
+        WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        wifi.setWifiEnabled(true);
+
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-      //  this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.setContentView(R.layout.activity_menu);
         barcode = (Button) findViewById(R.id.barcode);
         barcode.setOnClickListener(new View.OnClickListener() {
@@ -75,26 +82,6 @@ public class Menu extends AppCompatActivity {
         blue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            /*    if (mBluetoothAdapter == null) {
-                    Toast toast = Toast.makeText(Menu.this.getBaseContext(), "Le téléphone ne supporte pas le bluetooth", Toast.LENGTH_LONG);
-                    toast.show();
-                    finish();
-                } if (!mBluetoothAdapter.isEnabled()) {
-                    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-                }
-                if (mBluetoothAdapter.isEnabled()){
-                    Intent intent =new Intent(Menu.this, BluetoothList.class);
-                    Menu.this.startActivity(intent);
-                }
-                 //serverThread = new AcceptThread();
-                //serverThread.start();
-
-            }
-
-        });*/
-              /*  Intent intent = new Intent(Menu.this, NetworkCombat.class);
-                Menu.this.startActivity(intent);*/
                 Intent intent =new Intent(Menu.this, StartOnlineGame.class);
                 Menu.this.startActivity(intent);
             }

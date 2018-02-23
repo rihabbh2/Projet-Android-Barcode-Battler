@@ -114,7 +114,7 @@ public class LocalCombat extends AppCompatActivity {
                     if (choix > 0.5) {
                         int attack2 = (int) (Math.random() * 20);
                         m1.setAttack(m1.getAttack() - attack2);
-                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 attack +" +attack2, Toast.LENGTH_LONG);
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Votre adversaire a lancé une attaque de puissance +" +attack2, Toast.LENGTH_LONG);
                         toast1.show();
                         force1.setText("" + m1.getAttack());
                         if (m1.getAttack() <= 0) {
@@ -127,7 +127,7 @@ public class LocalCombat extends AppCompatActivity {
                         if (m2.getAttack()>100) {
                             m2.setAttack(100);
                         }
-                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 se défend +" +def2, Toast.LENGTH_LONG);
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Votre adversaire a augmenté sa défense de +" +def2, Toast.LENGTH_LONG);
                         toast1.show();
                         force2.setText("" + m2.getAttack());
                         if (m1.getAttack() <= 0) {
@@ -159,7 +159,7 @@ public class LocalCombat extends AppCompatActivity {
                     if (choix > 0.5) {
                         int attack2 = (int) (Math.random() * 20);
                         m1.setAttack(m1.getAttack() - attack2);
-                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 attack +" +attack2, Toast.LENGTH_LONG);
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Votre adversaire a lancé une attaque de puissance" +attack2, Toast.LENGTH_LONG);
                         toast1.show();
                         force1.setText("" + m1.getAttack());
                         if (m1.getAttack() <= 0) {
@@ -172,7 +172,7 @@ public class LocalCombat extends AppCompatActivity {
                         if (m2.getAttack()>100) {
                             m2.setAttack(100);
                         }
-                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "M2 se défend +" +def2, Toast.LENGTH_LONG);
+                        Toast toast1 = Toast.makeText(LocalCombat.this.getBaseContext(), "Votre adversaire a augmenté sa défense de " +def2, Toast.LENGTH_LONG);
                         toast1.show();
                         force2.setText("" + m2.getAttack());
                         if (m1.getAttack() <= 0) {
