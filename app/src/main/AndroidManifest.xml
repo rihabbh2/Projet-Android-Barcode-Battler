@@ -26,7 +26,6 @@
         <activity android:name=".Barcode" />
         <activity android:name=".Collection" />
         <activity android:name=".Details" />
-        <activity android:name=".BluetoothList" />
         <activity android:name=".ChooseMonster" />
         <activity android:name=".LocalCombat" />
         <activity android:name=".Victoire" />
