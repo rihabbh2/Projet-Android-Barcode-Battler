@@ -71,6 +71,11 @@ public class ChooseMonster2 extends AppCompatActivity implements ListAdapter {
                 i.putExtra("category2", item.getCategorie());
                 i.putExtra("images2", item.getImgBase64());
                 i.putExtra("vie2", Integer.toString(item.getVie()));
+                i.putExtra("attack1", attack);
+                i.putExtra("def1", def);
+                i.putExtra("attack2", Integer.toString(item.getAttack()));
+                i.putExtra("def2", Integer.toString(item.getDef()));
+
               //  i.putExtra("attack", Integer.toString(item.getAttack()));
                // i.putExtra("def", Integer.toString(item.getDef()));
                 startActivity(i);

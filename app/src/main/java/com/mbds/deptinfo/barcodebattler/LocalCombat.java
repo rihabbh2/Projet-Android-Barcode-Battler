@@ -30,6 +30,10 @@ public class LocalCombat extends AppCompatActivity {
     Button defense;
     TextView arme1;
     TextView arme2;
+    String att1;
+    String att2;
+    String d1;
+    String d2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +48,7 @@ public class LocalCombat extends AppCompatActivity {
         force2 = (TextView) findViewById(R.id.forc1) ;
         mImageView2 = (ImageView) findViewById(R.id.p1) ;
         Intent i = getIntent();
-        arme1 = (TextView)  findViewById(R.id.arme);
-        arme2 = (TextView)  findViewById(R.id.arme1);
-
+      
 
         String name1 = "";
         String category1= "";
@@ -68,6 +70,10 @@ public class LocalCombat extends AppCompatActivity {
             name2 = intent.getStringExtra("nom2");
             category2 = intent.getStringExtra("category2");
             arm2 = intent.getStringExtra("vie2");
+             att1 = intent.getStringExtra("attack1");
+             d1 = intent.getStringExtra("def1");
+             att2= intent.getStringExtra("attack2");
+            d2 = intent.getStringExtra("def2");
             if (intent.getStringExtra("images1")!=null){
                 temp1 = intent.getStringExtra("images1");
 
@@ -88,14 +94,10 @@ public class LocalCombat extends AppCompatActivity {
         categorie1.setText(category1);
         nom2.setText(name2);
         categorie2.setText(category2);
-        m1 = new Monster("0",nom1.toString(),category1,image1, 100,10,100);
-        m2 = new Monster("1",nom2.toString(),category2,image2, 100,10,100);
-        force2.setText(Integer.toString(m2.getAttack()));
-        force1.setText(Integer.toString(m1.getAttack()));
-        arme1.setText(arm1);
-        arme2.setText(arm2);
-
-
+        m1 = new Monster("0",nom1.toString(),category1,image1,Integer.parseInt(att1),Integer.parseInt(d1),Integer.parseInt(arm1));
+        m2 = new Monster("1",nom2.toString(),category2,image2, Integer.parseInt(att2),Integer.parseInt(d2),Integer.parseInt(arm2));
+        force2.setText(arm1);
+        force1.setText(arm2);
 
         attack= (Button) findViewById(R.id.attack);
         attack.setOnClickListener(new View.OnClickListener() {
