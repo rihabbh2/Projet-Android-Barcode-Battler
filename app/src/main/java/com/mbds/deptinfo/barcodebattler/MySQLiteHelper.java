@@ -51,7 +51,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void deleteMonster(Monster monster)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("MONSTER","NOM=? and CATEGORIE=? and IMAGE=?" ,new String[]{monster.getNom() ,monster.getCategorie(),monster.getImgBase64()});
+        db.delete("MONSTER","ID=? and NOM=? and CATEGORIE=? and IMAGE=? and VIE=? and ATTACK=? and DEF=?" ,new String[]{monster.getId(),monster.getNom() ,monster.getCategorie(),monster.imgBase64,Integer.toString(monster.getVie()),Integer.toString(monster.getAttack()),Integer.toString(monster.getDef())});
        // db.execSQL("DELETE FROM MONSTER WHERE  NOM =" +monster.getNom() +" AND CATEGORIE =" +monster.getCategorie()+" AND IMAGE = "+monster.getImgBase64()+" AND FORCE = "+monster.getForceBrute());
         db.close();
     }
